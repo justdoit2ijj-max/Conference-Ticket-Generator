@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="/src/style.css" />
+  <link rel="shortcut icon" href="assets/images/favicon-32x32.png" type="image/x-icon">
+  <script type="module" src="/main.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conference Ticket Generator</title>
+</head>
+
+<body
+  class="min-h-screen bg-[url('/assets/images/background-mobile.png')] bg-cover bg-center px-6 pt-8 py-24 lg:py-10 relative isolate flex flex-col items-center lg:bg-[url('/assets/images/background-desktop.png')] md:bg-[url('/assets/images/background-tablet.png')]">
+  <img src="/assets/images/pattern-lines.svg" alt="line pattern"
+    class="absolute inset-0 -z-10 h-full w-full object-cover object-top" aria-hidden="true" />
+  <img src="/assets/images/pattern-squiggly-line-top.svg" alt="top squiggly line"
+    class="absolute right-0 top-6 h-20 -z-10 lg:h-40">
+  <img src="/assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg" alt="bottom squiggly line"
+    class="absolute left-0 bottom-0 h-50 -z-10 lg:hidden">
+  <img src="/assets/images/pattern-squiggly-line-bottom-desktop.svg" alt="bottom squiggly line"
+    class="absolute left-0 bottom-0 h-80 -z-10 hidden lg:inline">
+  <img src="/assets/images/pattern-circle.svg" alt="circle pattern"
+    class="hidden lg:inline absolute -top-17 left-4 h-40">
+  <img src="/assets/images/pattern-circle.svg" alt="circle pattern"
+    class="hidden lg:inline absolute top-105 right-45 h-40">
+  <header class="flex justify-center flex-col pb-6" id="first-header">
+    <img src="/assets/images/logo-full.svg" alt="full logo" class="h-7">
+    <h1 class="text-center font-inconsolata font-bold text-neutral-50 text-[1.74rem] mt-6 my-3 lg:text-4xl">Your Journey
+      to
+      Coding<br> Conf 2025 Starts Here!</h1>
+    <p class="font-inconsolata text-center text-neutral-300 text-lg">Secure your spot at next year's biggest coding
+      conference</p>
+  </header>
+  <main class="lg:w-90" id="first-main">
+    <section>
+      <h2 class="font-inconsolata text-neutral-50 text-md">Upload Avatar</h2>
+      <label for="avatar" id="avatar-label"
+        class="mt-2 flex min-h-32 w-full cursor-pointer flex-col items-center justify-center gap-4 rounded-xl border border-dashed border-neutral-50/50 bg-neutral-300/10 hover:bg-neutral-300/40 py-6 px-4 font-inconsolata text-neutral-300">
+        <span class="rounded-lg border border-neutral-50/10 bg-neutral-300/10 p-3">
+          <img src="/assets/images/icon-upload.svg" alt="upload icon" class="h-6 w-6" id="avatar-preview">
+        </span>
+        <span id="avatar-info">Drag and drop or click to upload</span>
+        <div id="button-container" class="flex gap-2"></div>
+        <input id="avatar" type="file" accept="image/*" class="hidden">
+      </label>
+      <div class="flex items-center gap-1 mt-4">
+        <img src="assets/images/icon-info.svg" alt="info icon">
+        <p id="avatar-message" class="font-inconsolata text-neutral-500 text-xs my-2">Upload Your photo (JPG or PNG, max
+          size: 500Kb)</p>
+      </div>
+    </section>
+    <section class="mb-6">
+      <label for="name" class="font-inconsolata text-neutral-50 text-md flex flex-col gap-2">
+        Full Name
+        <input type="text" id="name"
+          class="w-full rounded-xl border border-neutral-50/50 bg-neutral-300/10 px-4 py-3 hover:bg-neutral-300/40 cursor-pointer">
+      </label>
+    </section>
+    <section class="mb-6">
+      <label for="email" class="font-inconsolata text-neutral-50 text-md flex flex-col gap-2">
+        Email Address
+        <input type="email"
+          class="w-full rounded-xl border border-neutral-50/50 bg-neutral-300/10 px-4 py-3 hover:bg-neutral-300/40 cursor-pointer"
+          placeholder="example@email.com" id="email">
+      </label>
+    </section>
+    <section class="mb-6">
+      <label for="github-username" class="font-inconsolata text-neutral-50 text-md flex flex-col gap-2">
+        Github Username
+        <input type="text"
+          class="w-full rounded-xl border border-neutral-50/50 bg-neutral-300/10 px-4 py-3 hover:bg-neutral-300/40 cursor-pointer"
+          placeholder="@yourusername" id="github-username">
+      </label>
+    </section>
+    <section>
+      <button type="submit" id="submit"
+        class="w-full h-max py-4 rounded-xl bg-[hsl(7,88%,67%)] text-neutral-900 text-xl font-inconsolata font-semibold cursor-pointer hover:bg-[hsl(7,88%,60%)]">Generate
+        My Ticket</button>
+    </section>
+  </main>
+<header id="second-header" class="hidden justify-center flex-col pb-6">
+  <img src="/assets/images/logo-full.svg" alt="full logo" class="h-10">
+  <h1 class="text-3xl font-inconsolata font-semibold text-neutral-50 text-center mt-4"> Congrats, <span
+      class="bg-linear-to-r from-orange-500 to-white bg-clip-text text-transparent name-output"></span> Your
+    ticket is ready.</h1>
+  <p class="font-inconsolata text-lg text-center text-neutral-300 font-semibold mt-4">We've emailed your ticket to
+    <span class="text-orange-500" id="email-output"></span> and will send updates in the run up to the event.</p>
+</header>
+
+<main id="second-main" class="hidden w-full">
+  <div class="bg-[url('/assets/images/pattern-ticket.svg')] bg-no-repeat bg-cover p-3 lg:p-6 min-h-70 flex flex-col gap-0 lg:gap-4 max-w-md mx-auto w-full">
+    <div>
+      <img src="/assets/images/logo-full.svg" alt="full logo" class="h-8 mb-2">
+      <p class="font-inconsolata text-neutral-400 text-sm">
+        Jan 31, 2025 / Austin, TX
+      </p>
+    </div>
+    <div class="flex items-center gap-4 mt-4">
+      <img src="" alt="avatar" id="img-output" class="w-14 h-14 rounded-lg object-cover">
+      <div class="flex flex-col gap-1">
+        <h2 class="name-output text-neutral-50 font-bold text-lg"></h2>
+        <div class="flex gap-2 items-center">
+          <img src="/assets/images/icon-github.svg" alt="github icon" class="w-4 h-4">
+          <p id="github-username-output" class="text-neutral-300 text-sm"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

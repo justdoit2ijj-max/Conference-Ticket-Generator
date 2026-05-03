@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-inconsolata: "Inconsolata", monospace;
+}
+
+@layer utilities {
+  #second-main .bg-\[url\(\'\/assets\/images\/pattern-ticket\.svg\'\)\] {
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 280px;
+  }
+
+  input,
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+    -webkit-text-fill-color: white;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  input:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.8);
+  }
+}
